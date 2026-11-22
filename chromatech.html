@@ -56,7 +56,7 @@ footer{margin:56px 0 40px;padding-top:20px;border-top:1px solid var(--line);font
 <div class="w">
 <header>ChromaTech</header>
 <h1>Nhìn màu là biết hải sản còn tươi</h1>
-<p class="lead">Bao bì sinh học từ vỏ tôm, vỏ cua kèm ba nhãn đổi màu. Một nhãn cho biết độ tươi, một nhãn cho biết nhiệt độ hiện tại, một nhãn cho biết đã chịu nhiệt bao lâu. Chỉ cần nhìn, không cần thiết bị.</p>
+<p class="lead">Bao bì sinh học từ vỏ tôm, vỏ cua kèm ba nhãn đổi màu. Một nhãn cho biết độ tươi, một nhãn cho biết nhiệt độ hiện tại, một nhãn cho biết đã chịu nhiệt bao lâu. Chỉ cần nhìn, không cần thiết bị. Mã QR cho biết loại thực phẩm, số lô và ngày sản xuất.</p>
 
 <h2>Thử trên gói 3D</h2>
 <p class="sub">Kéo để xoay gói. Chọn chế độ bảo quản và thời điểm để xem ba nhãn đổi màu thế nào.</p>
@@ -82,12 +82,16 @@ footer{margin:56px 0 40px;padding-top:20px;border-top:1px solid var(--line);font
 <div class="cells"><i></i><i class="f"></i><i class="f"></i></div><span>2 ô: bảo quản mát, −18°C đến 4°C</span>
 <div class="cells"><i></i><i></i><i class="f"></i></div><span>1 ô: ấm lên, 4°C đến 25°C</span>
 <div class="cells"><i></i><i></i><i></i></div><span>0 ô: nhiệt độ phòng, trên 25°C</span></div>
-<p>Một nhãn, ba ô ứng với ba mốc bảo quản. Đếm số ô còn màu là biết gói đang ở đâu.</p></div>
+<p>Một nhãn, ba ô tròn ứng với ba mốc bảo quản. Đếm số ô còn màu là biết gói đang ở đâu.</p></div>
 <div class="card"><h3>Nhãn enzyme</h3><p class="q">Đã chịu nhiệt bao lâu?</p>
 <div class="sc"><span style="background:#22305E"></span><span style="background:#6B4E9B"></span><span style="background:#B5614A"></span><span style="background:var(--surface)"></span></div>
 <div class="sl"><span>Mới</span><span>Nửa chặng</span><span>Sắp hết</span><span>Tới hạn</span></div>
 <p>Một ô amylase và iodine. Amylase cắt tinh bột nên màu xanh đen nhạt dần. Chỉ một công thức: hết màu sau khoảng 2 giờ ở nhiệt độ phòng, 1–2 ngày ở 0–4°C. Khi cấp đông, ô giữ màu cho tới lúc tan đông.</p></div>
+<div class="card"><h3>Mã QR</h3><p class="q">Thực phẩm gì, lô nào, sản xuất khi nào?</p>
+<p>Quét mã để xem loại thực phẩm, số lô và thời gian sản xuất. Thông tin này giúp đọc màu nhãn đúng theo từng loại thủy hải sản và truy xuất khi cần.</p></div>
 </div>
+
+<div class="film"><strong style="color:var(--ink)">Bố cục trên bao.</strong> Bốn thành phần nằm gọn trong một khung ở góc bao: hàng ba ô tròn leuco, thanh anthocyanin, thanh enzyme, rồi mã QR. Nhãn anthocyanin cần tiếp xúc khí bên trong bao, nên được dán mặt trong và nhìn qua cửa sổ trong suốt ngay tại khung này.</div>
 
 <div class="film"><strong style="color:var(--ink)">Màng bọc sắn dây – chitosan.</strong> Chitosan từ vỏ tôm, vỏ cua ức chế vi khuẩn, tinh bột sắn dây tạo màng liên tục và phân hủy sinh học. Phụ phẩm của ngành thủy sản quay lại thành bao bì cho chính ngành đó.</div>
 
@@ -123,28 +127,32 @@ var el=document.getElementById('c3'),W=el.clientWidth||680,H=el.clientHeight||36
 var scene=new THREE.Scene();var cam=new THREE.PerspectiveCamera(35,W/H,0.1,50);cam.position.set(0,0.5,8.4);cam.lookAt(0,0,0);
 var r=new THREE.WebGLRenderer({antialias:true,alpha:true});r.setSize(W,H);r.setPixelRatio(Math.min(window.devicePixelRatio,2));el.appendChild(r.domElement);
 scene.add(new THREE.AmbientLight(0xffffff,0.8));var dl=new THREE.DirectionalLight(0xffffff,0.6);dl.position.set(3,5,6);scene.add(dl);
-var g=new THREE.Group();scene.add(g);var bg=new THREE.BoxGeometry(3.2,2.3,0.9);
+var g=new THREE.Group();scene.add(g);
+var bg=new THREE.BoxGeometry(3.4,2.7,0.5);
 var bm=new THREE.MeshPhongMaterial({color:0xcfdde6,transparent:true,opacity:0.3,depthWrite:false,shininess:80});g.add(new THREE.Mesh(bg,bm));
 g.add(new THREE.LineSegments(new THREE.EdgesGeometry(bg),new THREE.LineBasicMaterial({color:0x888780})));
-var tray=new THREE.Mesh(new THREE.BoxGeometry(2.8,0.3,0.78),new THREE.MeshPhongMaterial({color:0xf1efe8}));tray.position.y=-0.8;g.add(tray);
+var tray=new THREE.Mesh(new THREE.BoxGeometry(3.0,0.28,0.4),new THREE.MeshPhongMaterial({color:0xf1efe8}));tray.position.y=-1.05;g.add(tray);
 var sm=new THREE.MeshPhongMaterial({color:0xd85a30});
-function shrimp(x,z,ry){var s=new THREE.Group();var b=new THREE.Mesh(new THREE.SphereGeometry(0.2,18,12),sm);b.scale.set(1.6,0.8,0.9);s.add(b);var t=new THREE.Mesh(new THREE.ConeGeometry(0.15,0.32,12),sm);t.rotation.z=Math.PI/2;t.position.x=-0.42;s.add(t);s.position.set(x,-0.5,z);s.rotation.y=ry;g.add(s)}
-shrimp(-0.8,0.1,0.2);shrimp(0,-0.1,-0.15);shrimp(0.8,0.1,0.1);
-var fg=new THREE.BoxGeometry(2.95,0.8,0.84);var film=new THREE.Mesh(fg,new THREE.MeshPhongMaterial({color:0x1d9e75,transparent:true,opacity:0.2,depthWrite:false}));film.position.y=-0.6;g.add(film);
-var fl=new THREE.LineSegments(new THREE.EdgesGeometry(fg),new THREE.LineBasicMaterial({color:0x1d9e75}));fl.position.y=-0.6;g.add(fl);
-var lc=document.createElement('canvas');lc.width=1024;lc.height=300;var lx=lc.getContext('2d');var lt=new THREE.CanvasTexture(lc);
-var lp=new THREE.Mesh(new THREE.PlaneGeometry(3.0,0.88),new THREE.MeshBasicMaterial({map:lt,transparent:true}));lp.position.set(0,0.6,0.455);g.add(lp);
-function rr(x,y,w,h,f,s){lx.beginPath();if(lx.roundRect){lx.roundRect(x,y,w,h,14)}else{lx.rect(x,y,w,h)}if(f){lx.fillStyle=f;lx.fill()}if(s){lx.strokeStyle=s;lx.lineWidth=4;lx.stroke()}}
-function drawL(n,e){lx.clearRect(0,0,1024,300);rr(8,4,1008,290,'rgba(255,255,255,0.9)',null);var nm=['Đông','Mát','Phòng'];
-for(var i=0;i<3;i++){var on=i>=3-n;var x=40+i*160;if(on){rr(x,30,150,110,'#7F77DD','#534AB7')}else{rr(x,30,150,110,'#FFFFFF','#888780')}
-lx.fillStyle=on?'#fff':'#444441';lx.font='500 34px sans-serif';lx.textAlign='center';lx.textBaseline='middle';lx.fillText(nm[i],x+75,85)}
-lx.fillStyle='#444441';lx.font='28px sans-serif';lx.textAlign='left';lx.fillText('Nhãn leuco, 3 ô',40,190);
-rr(620,30,300,110,EC[e],e==3?'#888780':'#0C447C');rr(920,60,44,44,'#B4B2A9','#5F5E5A');lx.fillStyle='#444441';lx.fillText('Nhãn enzyme, 1 ô',620,190);lt.needsUpdate=true}
-var ac=document.createElement('canvas');ac.width=384;ac.height=144;var ax=ac.getContext('2d');var at=new THREE.CanvasTexture(ac);
-function drawA(a){ax.fillStyle=AC[a];ax.fillRect(0,0,384,144);ax.strokeStyle='rgba(255,255,255,0.8)';ax.lineWidth=6;ax.setLineDash([16,10]);ax.strokeRect(6,6,372,132);ax.setLineDash([]);ax.fillStyle='#fff';ax.font='500 34px sans-serif';ax.textAlign='center';ax.textBaseline='middle';ax.fillText('Anthocyanin',192,56);ax.font='28px sans-serif';ax.fillText('+ citric acid',192,100);at.needsUpdate=true}
-var ap=new THREE.Mesh(new THREE.PlaneGeometry(1.0,0.375),new THREE.MeshBasicMaterial({map:at}));ap.position.set(-0.85,-0.02,0.3);g.add(ap);
+function shrimp(x,z,ry){var s=new THREE.Group();var b=new THREE.Mesh(new THREE.SphereGeometry(0.2,18,12),sm);b.scale.set(1.6,0.8,0.9);s.add(b);var t=new THREE.Mesh(new THREE.ConeGeometry(0.15,0.32,12),sm);t.rotation.z=Math.PI/2;t.position.x=-0.42;s.add(t);s.position.set(x,-0.82,z);s.rotation.y=ry;g.add(s)}
+shrimp(-0.9,0,0.2);shrimp(0,0,-0.15);shrimp(0.9,0,0.1);
+var fg=new THREE.BoxGeometry(3.05,0.7,0.44);var film=new THREE.Mesh(fg,new THREE.MeshPhongMaterial({color:0x1d9e75,transparent:true,opacity:0.2,depthWrite:false}));film.position.y=-0.95;g.add(film);
+var fl=new THREE.LineSegments(new THREE.EdgesGeometry(fg),new THREE.LineBasicMaterial({color:0x1d9e75}));fl.position.y=-0.95;g.add(fl);
+var pc=document.createElement('canvas');pc.width=500;pc.height=760;var cx=pc.getContext('2d');var pt=new THREE.CanvasTexture(pc);
+var pp=new THREE.Mesh(new THREE.PlaneGeometry(1.25,1.9),new THREE.MeshBasicMaterial({map:pt,transparent:true}));pp.position.set(-0.92,0.25,0.256);g.add(pp);
+function rr(x,y,w,h,f,s){cx.beginPath();if(cx.roundRect){cx.roundRect(x,y,w,h,12)}else{cx.rect(x,y,w,h)}if(f){cx.fillStyle=f;cx.fill()}if(s){cx.strokeStyle=s;cx.lineWidth=4;cx.stroke()}}
+function tx(t,x,y,sz,col,al){cx.fillStyle=col;cx.font=sz+'px sans-serif';cx.textAlign=al||'left';cx.textBaseline='middle';cx.fillText(t,x,y)}
+function qr(x,y,s){var n=21,c=s/n,seed=7;cx.fillStyle='#fff';cx.fillRect(x,y,s,s);cx.fillStyle='#111';
+for(var i=0;i<n;i++)for(var j=0;j<n;j++){if((i<8&&j<8)||(i<8&&j>=n-8)||(i>=n-8&&j<8))continue;seed=(Math.imul(seed,1103515245)+12345)&0x7fffffff;if(seed%3==0)cx.fillRect(x+i*c,y+j*c,c,c)}
+function f(a,b){cx.fillStyle='#111';cx.fillRect(x+a*c,y+b*c,7*c,7*c);cx.fillStyle='#fff';cx.fillRect(x+(a+1)*c,y+(b+1)*c,5*c,5*c);cx.fillStyle='#111';cx.fillRect(x+(a+2)*c,y+(b+2)*c,3*c,3*c)}
+f(0,0);f(n-7,0);f(0,n-7)}
+function drawP(n,e,a){cx.clearRect(0,0,500,760);rr(6,6,488,748,'rgba(255,255,255,0.94)','#B4B2A9');var nm=['Đông','Mát','Phòng'];
+for(var i=0;i<3;i++){var on=i>=3-n;var X=105+i*145;cx.beginPath();cx.arc(X,85,56,0,6.2832);cx.fillStyle=on?'#7F77DD':'#FFFFFF';cx.fill();cx.lineWidth=4;cx.strokeStyle=on?'#534AB7':'#888780';cx.stroke();tx(nm[i],X,85,26,on?'#fff':'#444441','center')}
+tx('Nhãn leuco',40,170,24,'#444441');
+cx.setLineDash([12,8]);rr(40,205,420,70,AC[a],'#993556');cx.setLineDash([]);tx('Nhãn anthocyanin (cửa sổ mặt trong)',40,302,22,'#444441');
+rr(40,335,370,70,EC[e],e==3?'#888780':'#0C447C');rr(420,350,40,40,'#B4B2A9','#5F5E5A');tx('Nhãn enzyme',40,432,24,'#444441');
+qr(40,470,240);tx('Loại thực phẩm',300,520,24,'#444441');tx('Số lô',300,575,24,'#444441');tx('Ngày sản xuất',300,630,24,'#444441');tx('Mã QR (minh họa)',40,735,20,'#444441');pt.needsUpdate=true}
 function $(i){return document.getElementById(i)}
-function apply(){var s=M[mi].s[si];drawL(s.l,s.e);drawA(s.a);
+function apply(){var s=M[mi].s[si];drawP(s.l,s.e,s.a);
 $('d1').style.background=s.l>0?'#7F77DD':'transparent';$('d2').style.background=EC[s.e];$('d3').style.background=AC[s.a];
 $('t1').textContent=LN[s.l];$('t2').textContent=EN[s.e];$('t3').textContent=AN[s.a];$('t4').textContent=s.c;
 var sb=$('sb');sb.innerHTML='';M[mi].s.forEach(function(x,i){var b=document.createElement('button');b.className=i==si?'on':'';b.textContent=x.n;b.onclick=function(){si=i;apply()};sb.appendChild(b)});
