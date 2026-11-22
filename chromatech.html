@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ChromaTech – Nhìn màu là biết hải sản còn tươi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F3F8F8;--surface:#FFFFFF;--ink:#10242A;--ink2:#46606A;--line:#C9DADD;--deep:#0E3B43;--accent:#D9481F;--acc-bg:#FDE9E2;--on:#E1F2F3;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1A1E;--surface:#112A30;--ink:#E6F1F2;--ink2:#9DB8BE;--line:#27474F;--deep:#7CC6CF;--accent:#FF8C69;--acc-bg:#3A2019;--on:#173840}}
+:root[data-theme="dark"]{--bg:#0B1A1E;--surface:#112A30;--ink:#E6F1F2;--ink2:#9DB8BE;--line:#27474F;--deep:#7CC6CF;--accent:#FF8C69;--acc-bg:#3A2019;--on:#173840}
+html{scroll-padding-top:env(safe-area-inset-top,0px);background:var(--bg)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.65;font-size:16px}
+.w{max-width:1040px;margin:0 auto;padding:0 20px}
+header{padding:28px 0 8px;font-weight:700;letter-spacing:.01em;color:var(--deep);font-size:18px}
+h1{font-size:clamp(34px,6vw,60px);line-height:1.08;margin:32px 0 16px;font-weight:700;max-width:16ch;color:var(--ink)}
+.lead{font-size:18px;color:var(--ink2);max-width:60ch;margin:0 0 28px}
+h2{font-size:26px;line-height:1.2;margin:56px 0 8px;font-weight:700}
+.sub{color:var(--ink2);max-width:62ch;margin:0 0 20px}
+#c3{width:100%;height:clamp(280px,46vw,400px);cursor:grab;touch-action:none;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+.row .k{width:84px;color:var(--ink2);font-size:14px}
+button{font:inherit;font-size:14px;padding:7px 14px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);cursor:pointer}
+button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+button.on{background:var(--deep);color:var(--bg);border-color:var(--deep)}
+.rd{margin-top:16px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:4px 18px}
+.rw{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--line)}
+.rw:first-child{border-top:0}
+.rl{width:132px;flex:none;font-weight:500;font-size:14px}
+.dot{width:20px;height:20px;border-radius:5px;border:1px solid var(--line);flex:none;margin-top:2px}
+.rt{font-size:15px;color:var(--ink2)}
+.rt.s{color:var(--ink)}
+.note{font-size:13px;color:var(--ink2);margin-top:10px}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{margin:0 0 4px;font-size:18px}
+.card .q{color:var(--accent);font-weight:500;font-size:14px;margin:0 0 12px}
+.card p{margin:10px 0 0;font-size:15px;color:var(--ink2)}
+.sc{display:flex;gap:4px;margin:12px 0 4px}
+.sc span{flex:1;height:34px;border-radius:6px;border:1px solid var(--line)}
+.sl{display:flex;gap:4px;font-size:12px;color:var(--ink2)}
+.sl span{flex:1}
+.lg{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;align-items:center;margin-top:12px;font-size:14px;color:var(--ink2)}
+.cells{display:flex;gap:3px}
+.cells i{width:18px;height:18px;border-radius:4px;border:1px solid var(--line);display:block}
+.cells i.f{background:#7F77DD;border-color:#534AB7}
+.film{background:var(--on);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:20px;color:var(--ink2)}
+footer{margin:56px 0 40px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--ink2)}
+@media (max-width:560px){.rw{flex-wrap:wrap}.rl{width:100%}.row .k{width:100%}}
+</style>
+</head>
+<body>
+<div class="w">
+<header>ChromaTech</header>
+<h1>Nhìn màu là biết hải sản còn tươi</h1>
+<p class="lead">Bao bì sinh học từ vỏ tôm, vỏ cua kèm ba nhãn đổi màu. Một nhãn cho biết độ tươi, một nhãn cho biết nhiệt độ hiện tại, một nhãn cho biết đã chịu nhiệt bao lâu. Chỉ cần nhìn, không cần thiết bị.</p>
+
+<h2>Thử trên gói 3D</h2>
+<p class="sub">Kéo để xoay gói. Chọn chế độ bảo quản và thời điểm để xem ba nhãn đổi màu thế nào.</p>
+<div id="c3" role="img" aria-label="Mô hình 3D gói tôm ChromaTech với ba nhãn chỉ thị"></div>
+<div class="row"><span class="k">Chế độ</span><span id="tb" style="display:flex;gap:8px;flex-wrap:wrap"></span></div>
+<div class="row"><span class="k">Thời điểm</span><span id="sb" style="display:flex;gap:8px;flex-wrap:wrap"></span></div>
+<div class="rd" aria-live="polite">
+<div class="rw"><div class="rl">Nhãn leuco</div><div class="dot" id="d1"></div><div class="rt" id="t1"></div></div>
+<div class="rw"><div class="rl">Nhãn enzyme</div><div class="dot" id="d2"></div><div class="rt" id="t2"></div></div>
+<div class="rw"><div class="rl">Nhãn anthocyanin</div><div class="dot" id="d3"></div><div class="rt" id="t3"></div></div>
+<div class="rw"><div class="rl">Kết luận</div><div class="rt s" id="t4"></div></div>
+</div>
+<p class="note">Mốc thời gian chỉ là ví dụ minh họa, cần hiệu chuẩn bằng số liệu thật.</p>
+
+<h2>Ba nhãn, ba câu hỏi</h2>
+<div class="g3">
+<div class="card"><h3>Nhãn anthocyanin</h3><p class="q">Thực phẩm còn tươi không?</p>
+<div class="sc"><span style="background:#D98FC0"></span><span style="background:#8B6BC9"></span><span style="background:#4C7FD6"></span><span style="background:#3FA37A"></span></div>
+<div class="sl"><span>Tươi</span><span>Sắp hư</span><span>Hư rõ</span><span>Đã hư</span></div>
+<p>Chiết từ hoa đậu biếc, có thêm một chút citric acid để màu bền hơn. Thủy hải sản hỏng sinh khí amin, nhãn đổi từ hồng – tím sang xanh lam rồi xanh lục.</p></div>
+<div class="card"><h3>Nhãn leuco</h3><p class="q">Gói đang ở nhiệt độ nào?</p>
+<div class="lg"><div class="cells"><i class="f"></i><i class="f"></i><i class="f"></i></div><span>3 ô còn màu: cấp đông, dưới −18°C</span>
+<div class="cells"><i></i><i class="f"></i><i class="f"></i></div><span>2 ô: bảo quản mát, −18°C đến 4°C</span>
+<div class="cells"><i></i><i></i><i class="f"></i></div><span>1 ô: ấm lên, 4°C đến 25°C</span>
+<div class="cells"><i></i><i></i><i></i></div><span>0 ô: nhiệt độ phòng, trên 25°C</span></div>
+<p>Một nhãn, ba ô ứng với ba mốc bảo quản. Đếm số ô còn màu là biết gói đang ở đâu.</p></div>
+<div class="card"><h3>Nhãn enzyme</h3><p class="q">Đã chịu nhiệt bao lâu?</p>
+<div class="sc"><span style="background:#22305E"></span><span style="background:#6B4E9B"></span><span style="background:#B5614A"></span><span style="background:var(--surface)"></span></div>
+<div class="sl"><span>Mới</span><span>Nửa chặng</span><span>Sắp hết</span><span>Tới hạn</span></div>
+<p>Một ô amylase và iodine. Amylase cắt tinh bột nên màu xanh đen nhạt dần. Chỉ một công thức: hết màu sau khoảng 2 giờ ở nhiệt độ phòng, 1–2 ngày ở 0–4°C. Khi cấp đông, ô giữ màu cho tới lúc tan đông.</p></div>
+</div>
+
+<div class="film"><strong style="color:var(--ink)">Màng bọc sắn dây – chitosan.</strong> Chitosan từ vỏ tôm, vỏ cua ức chế vi khuẩn, tinh bột sắn dây tạo màng liên tục và phân hủy sinh học. Phụ phẩm của ngành thủy sản quay lại thành bao bì cho chính ngành đó.</div>
+
+<footer>Dự án ChromaTech, bản đăng ký thi Khởi nghiệp học sinh, sinh viên. Kết quả trên nhãn chỉ mang tính tham khảo, không thay thế kiểm tra cảm quan hay kiểm nghiệm. Chitosan từ giáp xác có thể gây dị ứng ở người dị ứng hải sản.</footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+var EC=['#22305E','#6B4E9B','#B5614A','#FFFFFF'],AC=['#D98FC0','#8B6BC9','#4C7FD6','#3FA37A'];
+var EN=['Xanh đen: chưa hết thời gian','Tím: đi được khoảng nửa chặng','Nâu đỏ: sắp hết thời gian','Không màu: đã tới hạn thời gian'];
+var AN=['Hồng – tím: còn tươi','Tím: bắt đầu hư, nên dùng sớm','Xanh lam: hư rõ','Xanh lục: đã hư'];
+var LN=['0 ô còn màu: trên 25°C','1 ô còn màu: từ 4°C đến 25°C','2 ô còn màu: từ −18°C đến 4°C','3 ô còn màu: dưới −18°C'];
+var M=[
+{k:'Nhiệt độ phòng (25–32°C)',s:[
+{n:'Mới đóng gói',l:0,e:0,a:0,c:'Gói vừa đóng nhưng đang ở nhiệt độ phòng, nên cả 3 ô leuco đã mất màu. Cần đưa vào lạnh sớm.'},
+{n:'Sau 1 giờ',l:0,e:1,a:0,c:'Enzyme nhạt sang tím, đã qua khoảng nửa thời gian mục tiêu 2 giờ. Thực phẩm vẫn tươi.'},
+{n:'Sau 2 giờ',l:0,e:3,a:0,c:'Enzyme hết màu: tới hạn 2 giờ ở nhiệt độ phòng. Anthocyanin chưa đổi, nhưng nên làm lạnh ngay.'},
+{n:'Sau 6–8 giờ',l:0,e:3,a:2,c:'Anthocyanin sang xanh lam do TVB-N tăng: thủy hải sản bắt đầu hỏng rõ.'},
+{n:'Sau 12 giờ trở lên',l:0,e:3,a:3,c:'Cả hai nhãn cùng báo: đã hư, không nên dùng.'}]},
+{k:'Bảo quản mát (0–4°C)',s:[
+{n:'Vừa đóng gói',l:2,e:0,a:0,c:'Đúng mốc: 2 ô leuco còn màu, enzyme xanh đen, anthocyanin hồng – tím.'},
+{n:'Sau 1 ngày',l:2,e:1,a:0,c:'Enzyme nhạt chậm sang tím, chậm hơn nhiều so với nhiệt độ phòng. Vẫn tươi.'},
+{n:'Sau 2 ngày',l:2,e:3,a:1,c:'Enzyme hết màu: tới hạn 1–2 ngày. Anthocyanin bắt đầu sang tím, nên dùng sớm.'},
+{n:'Sau 5–7 ngày',l:2,e:3,a:2,c:'Anthocyanin sang xanh lam: bắt đầu hư dù nhiệt độ vẫn đúng mốc.'},
+{n:'Đứt chuỗi lạnh vài giờ',l:1,e:2,a:0,c:'Leuco chỉ còn 1 ô có màu: đã ấm quá 4°C. Enzyme mất màu nhanh hơn dự kiến, nhãn ghi nhớ lần đứt lạnh.'}]},
+{k:'Cấp đông (−18 đến −22°C)',s:[
+{n:'Vừa cấp đông',l:3,e:0,a:0,c:'Cả 3 ô leuco còn màu (dưới −18°C). Enzyme xanh đen vì gel đóng băng, anthocyanin hồng – tím.'},
+{n:'Đang đông vài tuần',l:3,e:0,a:0,c:'Không nhãn nào đổi: vi sinh và enzyme đều dừng. Nhãn không đo tuổi bảo quản đông dài hạn.'},
+{n:'Tan đông, ngăn mát 1 ngày',l:2,e:1,a:0,c:'Leuco chỉ còn 2 ô có màu: đã lên trên −18°C. Enzyme bắt đầu nhạt, đếm thời gian từ lúc tan đông.'},
+{n:'Tan đông, để ngoài nhiều giờ',l:0,e:3,a:2,c:'Leuco mất hết màu, enzyme hết màu, anthocyanin sang xanh lam. Không nên cấp đông lại.'}]}];
+var mi=1,si=0;
+var el=document.getElementById('c3'),W=el.clientWidth||680,H=el.clientHeight||360;
+var scene=new THREE.Scene();var cam=new THREE.PerspectiveCamera(35,W/H,0.1,50);cam.position.set(0,0.5,8.4);cam.lookAt(0,0,0);
+var r=new THREE.WebGLRenderer({antialias:true,alpha:true});r.setSize(W,H);r.setPixelRatio(Math.min(window.devicePixelRatio,2));el.appendChild(r.domElement);
+scene.add(new THREE.AmbientLight(0xffffff,0.8));var dl=new THREE.DirectionalLight(0xffffff,0.6);dl.position.set(3,5,6);scene.add(dl);
+var g=new THREE.Group();scene.add(g);var bg=new THREE.BoxGeometry(3.2,2.3,0.9);
+var bm=new THREE.MeshPhongMaterial({color:0xcfdde6,transparent:true,opacity:0.3,depthWrite:false,shininess:80});g.add(new THREE.Mesh(bg,bm));
+g.add(new THREE.LineSegments(new THREE.EdgesGeometry(bg),new THREE.LineBasicMaterial({color:0x888780})));
+var tray=new THREE.Mesh(new THREE.BoxGeometry(2.8,0.3,0.78),new THREE.MeshPhongMaterial({color:0xf1efe8}));tray.position.y=-0.8;g.add(tray);
+var sm=new THREE.MeshPhongMaterial({color:0xd85a30});
+function shrimp(x,z,ry){var s=new THREE.Group();var b=new THREE.Mesh(new THREE.SphereGeometry(0.2,18,12),sm);b.scale.set(1.6,0.8,0.9);s.add(b);var t=new THREE.Mesh(new THREE.ConeGeometry(0.15,0.32,12),sm);t.rotation.z=Math.PI/2;t.position.x=-0.42;s.add(t);s.position.set(x,-0.5,z);s.rotation.y=ry;g.add(s)}
+shrimp(-0.8,0.1,0.2);shrimp(0,-0.1,-0.15);shrimp(0.8,0.1,0.1);
+var fg=new THREE.BoxGeometry(2.95,0.8,0.84);var film=new THREE.Mesh(fg,new THREE.MeshPhongMaterial({color:0x1d9e75,transparent:true,opacity:0.2,depthWrite:false}));film.position.y=-0.6;g.add(film);
+var fl=new THREE.LineSegments(new THREE.EdgesGeometry(fg),new THREE.LineBasicMaterial({color:0x1d9e75}));fl.position.y=-0.6;g.add(fl);
+var lc=document.createElement('canvas');lc.width=1024;lc.height=300;var lx=lc.getContext('2d');var lt=new THREE.CanvasTexture(lc);
+var lp=new THREE.Mesh(new THREE.PlaneGeometry(3.0,0.88),new THREE.MeshBasicMaterial({map:lt,transparent:true}));lp.position.set(0,0.6,0.455);g.add(lp);
+function rr(x,y,w,h,f,s){lx.beginPath();if(lx.roundRect){lx.roundRect(x,y,w,h,14)}else{lx.rect(x,y,w,h)}if(f){lx.fillStyle=f;lx.fill()}if(s){lx.strokeStyle=s;lx.lineWidth=4;lx.stroke()}}
+function drawL(n,e){lx.clearRect(0,0,1024,300);rr(8,4,1008,290,'rgba(255,255,255,0.9)',null);var nm=['Đông','Mát','Phòng'];
+for(var i=0;i<3;i++){var on=i>=3-n;var x=40+i*160;if(on){rr(x,30,150,110,'#7F77DD','#534AB7')}else{rr(x,30,150,110,'#FFFFFF','#888780')}
+lx.fillStyle=on?'#fff':'#444441';lx.font='500 34px sans-serif';lx.textAlign='center';lx.textBaseline='middle';lx.fillText(nm[i],x+75,85)}
+lx.fillStyle='#444441';lx.font='28px sans-serif';lx.textAlign='left';lx.fillText('Nhãn leuco, 3 ô',40,190);
+rr(620,30,300,110,EC[e],e==3?'#888780':'#0C447C');rr(920,60,44,44,'#B4B2A9','#5F5E5A');lx.fillStyle='#444441';lx.fillText('Nhãn enzyme, 1 ô',620,190);lt.needsUpdate=true}
+var ac=document.createElement('canvas');ac.width=384;ac.height=144;var ax=ac.getContext('2d');var at=new THREE.CanvasTexture(ac);
+function drawA(a){ax.fillStyle=AC[a];ax.fillRect(0,0,384,144);ax.strokeStyle='rgba(255,255,255,0.8)';ax.lineWidth=6;ax.setLineDash([16,10]);ax.strokeRect(6,6,372,132);ax.setLineDash([]);ax.fillStyle='#fff';ax.font='500 34px sans-serif';ax.textAlign='center';ax.textBaseline='middle';ax.fillText('Anthocyanin',192,56);ax.font='28px sans-serif';ax.fillText('+ citric acid',192,100);at.needsUpdate=true}
+var ap=new THREE.Mesh(new THREE.PlaneGeometry(1.0,0.375),new THREE.MeshBasicMaterial({map:at}));ap.position.set(-0.85,-0.02,0.3);g.add(ap);
+function $(i){return document.getElementById(i)}
+function apply(){var s=M[mi].s[si];drawL(s.l,s.e);drawA(s.a);
+$('d1').style.background=s.l>0?'#7F77DD':'transparent';$('d2').style.background=EC[s.e];$('d3').style.background=AC[s.a];
+$('t1').textContent=LN[s.l];$('t2').textContent=EN[s.e];$('t3').textContent=AN[s.a];$('t4').textContent=s.c;
+var sb=$('sb');sb.innerHTML='';M[mi].s.forEach(function(x,i){var b=document.createElement('button');b.className=i==si?'on':'';b.textContent=x.n;b.onclick=function(){si=i;apply()};sb.appendChild(b)});
+var tb=$('tb');tb.innerHTML='';M.forEach(function(x,i){var b=document.createElement('button');b.className=i==mi?'on':'';b.textContent=x.k;b.onclick=function(){mi=i;si=0;apply()};tb.appendChild(b)})}
+apply();g.rotation.y=0.45;
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var auto=!reduce,drag=false,px=0,py=0,t=0;
+el.addEventListener('pointerdown',function(e){drag=true;auto=false;px=e.clientX;py=e.clientY;el.style.cursor='grabbing';el.setPointerCapture(e.pointerId)});
+el.addEventListener('pointermove',function(e){if(!drag)return;g.rotation.y+=(e.clientX-px)*0.01;g.rotation.x=Math.max(-0.7,Math.min(0.7,g.rotation.x+(e.clientY-py)*0.005));px=e.clientX;py=e.clientY});
+el.addEventListener('pointerup',function(){drag=false;el.style.cursor='grab'});
+window.addEventListener('resize',function(){var w=el.clientWidth,h=el.clientHeight;if(!w||!h)return;r.setSize(w,h);cam.aspect=w/h;cam.updateProjectionMatrix()});
+function loop(){requestAnimationFrame(loop);t+=0.016;if(auto){g.rotation.y=0.5*Math.sin(t*0.6)}r.render(scene,cam)}loop();
+})();
+</script>
+</body>
+</html>
