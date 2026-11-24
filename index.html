@@ -48,6 +48,8 @@ button.on{background:var(--deep);color:var(--bg);border-color:var(--deep)}
 .cells i{width:18px;height:18px;border-radius:4px;border:1px solid var(--line);display:block}
 .cells i.f{background:#7F77DD;border-color:#534AB7}
 .film{background:var(--on);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:20px;color:var(--ink2)}
+.pl{display:grid;gap:12px;margin-top:20px}.ln{display:grid;grid-template-columns:120px 1fr;gap:12px;align-items:center}.ln b{font-size:14px}.st{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.st span{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:8px;padding:7px 10px;font-size:14px}.st i{font-style:normal;color:var(--ink2)}.mg{background:var(--deep);color:var(--bg);border-radius:10px;padding:10px 14px;font-weight:500;text-align:center}.tw{overflow-x:auto;margin-top:12px}.tbl{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);border:1px solid var(--line);min-width:520px}.tbl th,.tbl td{padding:10px 12px;text-align:left;vertical-align:top;border-top:1px solid var(--line)}.tbl th{font-weight:500;color:var(--ink2);border-top:0}.ul{margin:10px 0 0;padding-left:20px;color:var(--ink2);font-size:15px}.ul li{margin:4px 0}h3.hh{font-size:19px;margin:32px 0 4px}@media (max-width:560px){.ln{grid-template-columns:1fr;gap:6px}}
+svg.fl{width:100%;height:auto;display:block;margin-top:20px}svg.fl text{font-family:inherit;font-size:12px;fill:var(--ink)}svg.fl .ll{font-size:13px;font-weight:500}svg.fl .nd{fill:var(--surface);stroke:var(--c);stroke-width:1.5}svg.fl .ar line{stroke:var(--ink2);stroke-width:1.5}svg.fl .mgb{fill:var(--deep)}svg.fl .mgt{fill:var(--bg);font-weight:500;font-size:13px}
 footer{margin:56px 0 40px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--ink2)}
 @media (max-width:560px){.rw{flex-wrap:wrap}.rl{width:100%}.row .k{width:100%}}
 </style>
@@ -60,7 +62,8 @@ footer{margin:56px 0 40px;padding-top:20px;border-top:1px solid var(--line);font
 
 <h2>Thử trên gói 3D</h2>
 <p class="sub">Kéo để xoay gói. Chọn chế độ bảo quản và thời điểm để xem ba nhãn đổi màu thế nào.</p>
-<div id="c3" role="img" aria-label="Mô hình 3D gói tôm ChromaTech với ba nhãn chỉ thị"></div>
+<div id="c3" role="img" aria-label="Mô hình 3D gói mực ChromaTech với ba nhãn chỉ thị"></div>
+<div class="row"><span class="k">Phóng</span><button id="zi">Phóng to +</button><button id="zo">Thu nhỏ −</button><button id="zr">Đặt lại</button><span class="note" style="margin:0">Cuộn chuột hoặc chụm hai ngón để phóng</span></div>
 <div class="row"><span class="k">Chế độ</span><span id="tb" style="display:flex;gap:8px;flex-wrap:wrap"></span></div>
 <div class="row"><span class="k">Thời điểm</span><span id="sb" style="display:flex;gap:8px;flex-wrap:wrap"></span></div>
 <div class="rd" aria-live="polite">
@@ -91,9 +94,36 @@ footer{margin:56px 0 40px;padding-top:20px;border-top:1px solid var(--line);font
 <p>Quét mã để xem loại thực phẩm, số lô và thời gian sản xuất. Thông tin này giúp đọc màu nhãn đúng theo từng loại thủy hải sản và truy xuất khi cần.</p></div>
 </div>
 
-<div class="film"><strong style="color:var(--ink)">Bố cục trên bao.</strong> Bốn thành phần nằm gọn trong một khung ở góc bao: hàng ba ô tròn leuco, thanh anthocyanin, thanh enzyme, rồi mã QR. Nhãn anthocyanin cần tiếp xúc khí bên trong bao, nên được dán mặt trong và nhìn qua cửa sổ trong suốt ngay tại khung này.</div>
+<div class="film"><strong style="color:var(--ink)">Bố cục trên bao.</strong> Bốn thành phần nằm trong một khung trắng dọc ở góc bao, xếp từ trên xuống: hàng ba ô tròn leuco, thanh anthocyanin nằm ngang, thanh enzyme nằm ngang, rồi mã QR. Nhãn anthocyanin cần tiếp xúc khí bên trong bao, nên được dán mặt trong và nhìn qua cửa sổ trong suốt ngay tại khung này.</div>
 
 <div class="film"><strong style="color:var(--ink)">Màng bọc sắn dây – chitosan.</strong> Chitosan từ vỏ tôm, vỏ cua ức chế vi khuẩn, tinh bột sắn dây tạo màng liên tục và phân hủy sinh học. Phụ phẩm của ngành thủy sản quay lại thành bao bì cho chính ngành đó.</div>
+
+<h2>Sản xuất thực tế</h2>
+<p class="sub">Năm nhánh làm song song, rồi gặp nhau ở công đoạn ghép nhãn lên khung góc bao. Thông số cụ thể (nhiệt độ sấy, nồng độ, thời gian) vẫn cần thử nghiệm.</p>
+<svg class="fl" viewBox="0 0 680 475" role="img" aria-label="Sơ đồ quy trình sản xuất bao bì ChromaTech"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs><text class="ll" x="10" y="44">Màng</text><text class="ll" x="10" y="62">chitosan</text><g style="--c:#1D9E75"><rect class="nd" x="120" y="30" width="130" height="44" rx="6"/><text x="185" y="44" text-anchor="middle" dominant-baseline="central">Hồ hóa tinh bột</text><text x="185" y="60" text-anchor="middle" dominant-baseline="central">hòa chitosan</text></g><g style="--c:#1D9E75"><rect class="nd" x="270" y="30" width="130" height="44" rx="6"/><text x="335" y="44" text-anchor="middle" dominant-baseline="central">Trộn glycerol,</text><text x="335" y="60" text-anchor="middle" dominant-baseline="central">lọc, khử bọt</text></g><g style="--c:#1D9E75"><rect class="nd" x="420" y="30" width="130" height="44" rx="6"/><text x="485" y="44" text-anchor="middle" dominant-baseline="central">Tráng, sấy,</text><text x="485" y="60" text-anchor="middle" dominant-baseline="central">cuộn màng</text></g><text class="ll" x="10" y="104">Nhãn</text><text class="ll" x="10" y="122">anthocyanin</text><g style="--c:#7F77DD"><rect class="nd" x="120" y="90" width="130" height="44" rx="6"/><text x="185" y="104" text-anchor="middle" dominant-baseline="central">Chiết hoa đậu biếc,</text><text x="185" y="120" text-anchor="middle" dominant-baseline="central">lọc, cô</text></g><g style="--c:#7F77DD"><rect class="nd" x="270" y="90" width="130" height="44" rx="6"/><text x="335" y="104" text-anchor="middle" dominant-baseline="central">Trộn nền polyme</text><text x="335" y="120" text-anchor="middle" dominant-baseline="central">+ citric acid</text></g><g style="--c:#7F77DD"><rect class="nd" x="420" y="90" width="130" height="44" rx="6"/><text x="485" y="104" text-anchor="middle" dominant-baseline="central">Tráng, sấy,</text><text x="485" y="120" text-anchor="middle" dominant-baseline="central">cắt thanh</text></g><text class="ll" x="10" y="164">Nhãn</text><text class="ll" x="10" y="182">leuco</text><g style="--c:#EF9F27"><rect class="nd" x="120" y="150" width="130" height="44" rx="6"/><text x="185" y="164" text-anchor="middle" dominant-baseline="central">Mua mực vi nang</text><text x="185" y="180" text-anchor="middle" dominant-baseline="central">3 mốc nhiệt</text></g><g style="--c:#EF9F27"><rect class="nd" x="270" y="150" width="130" height="44" rx="6"/><text x="335" y="164" text-anchor="middle" dominant-baseline="central">In 3 ô tròn</text><text x="335" y="180" text-anchor="middle" dominant-baseline="central">lên nền</text></g><g style="--c:#EF9F27"><rect class="nd" x="420" y="150" width="130" height="44" rx="6"/><text x="485" y="164" text-anchor="middle" dominant-baseline="central">Sấy nhẹ, phủ</text><text x="485" y="180" text-anchor="middle" dominant-baseline="central">chắn UV</text></g><text class="ll" x="10" y="230">Nhãn</text><text class="ll" x="10" y="248">enzyme</text><g style="--c:#378ADD"><rect class="nd" x="120" y="210" width="130" height="56" rx="6"/><text x="185" y="223" text-anchor="middle" dominant-baseline="central">Pha ngăn A: enzyme</text><text x="185" y="238" text-anchor="middle" dominant-baseline="central">Pha ngăn B: iodine +</text><text x="185" y="253" text-anchor="middle" dominant-baseline="central">hồ tinh bột</text></g><g style="--c:#378ADD"><rect class="nd" x="270" y="210" width="130" height="56" rx="6"/><text x="335" y="230" text-anchor="middle" dominant-baseline="central">Định lượng,</text><text x="335" y="246" text-anchor="middle" dominant-baseline="central">hàn túi nhỏ</text></g><g style="--c:#378ADD"><rect class="nd" x="420" y="210" width="130" height="56" rx="6"/><text x="485" y="230" text-anchor="middle" dominant-baseline="central">Ghép hai ngăn,</text><text x="485" y="246" text-anchor="middle" dominant-baseline="central">gắn tab giật</text></g><text class="ll" x="10" y="296">Mã</text><text class="ll" x="10" y="314">QR</text><g style="--c:#888780"><rect class="nd" x="120" y="282" width="130" height="44" rx="6"/><text x="185" y="296" text-anchor="middle" dominant-baseline="central">Nhập thông tin lô:</text><text x="185" y="312" text-anchor="middle" dominant-baseline="central">loại, số lô, ngày</text></g><g style="--c:#888780"><rect class="nd" x="270" y="282" width="130" height="44" rx="6"/><text x="335" y="296" text-anchor="middle" dominant-baseline="central">In nhãn QR</text><text x="335" y="312" text-anchor="middle" dominant-baseline="central">theo từng lô</text></g><g><rect class="mgb" x="575" y="30" width="85" height="296" rx="8"/><text class="mgt" x="617" y="160" text-anchor="middle">Ghép nhãn</text><text class="mgt" x="617" y="178" text-anchor="middle">lên khung</text><text class="mgt" x="617" y="196" text-anchor="middle">góc bao</text></g><g style="--c:#639922"><rect class="nd" x="530" y="362" width="130" height="44" rx="6"/><text x="595" y="376" text-anchor="middle" dominant-baseline="central">Đóng gói: bọc màng,</text><text x="595" y="392" text-anchor="middle" dominant-baseline="central">hàn kín bao</text></g><g style="--c:#D85A30"><rect class="nd" x="360" y="362" width="130" height="44" rx="6"/><text x="425" y="376" text-anchor="middle" dominant-baseline="central">Kiểm tra theo lô</text><text x="425" y="392" text-anchor="middle" dominant-baseline="central">(QC)</text></g><g style="--c:#639922"><rect class="nd" x="190" y="362" width="130" height="44" rx="6"/><text x="255" y="376" text-anchor="middle" dominant-baseline="central">Lưu kho lạnh,</text><text x="255" y="392" text-anchor="middle" dominant-baseline="central">giao hàng</text></g><g class="ar"><line x1="250" y1="52" x2="270" y2="52" marker-end="url(#ah)"/><line x1="400" y1="52" x2="420" y2="52" marker-end="url(#ah)"/><line x1="550" y1="52" x2="575" y2="52" marker-end="url(#ah)"/><line x1="250" y1="112" x2="270" y2="112" marker-end="url(#ah)"/><line x1="400" y1="112" x2="420" y2="112" marker-end="url(#ah)"/><line x1="550" y1="112" x2="575" y2="112" marker-end="url(#ah)"/><line x1="250" y1="172" x2="270" y2="172" marker-end="url(#ah)"/><line x1="400" y1="172" x2="420" y2="172" marker-end="url(#ah)"/><line x1="550" y1="172" x2="575" y2="172" marker-end="url(#ah)"/><line x1="250" y1="238" x2="270" y2="238" marker-end="url(#ah)"/><line x1="400" y1="238" x2="420" y2="238" marker-end="url(#ah)"/><line x1="550" y1="238" x2="575" y2="238" marker-end="url(#ah)"/><line x1="250" y1="304" x2="270" y2="304" marker-end="url(#ah)"/><line x1="400" y1="304" x2="575" y2="304" marker-end="url(#ah)"/><line x1="617" y1="326" x2="617" y2="362" marker-end="url(#ah)"/><line x1="530" y1="384" x2="490" y2="384" marker-end="url(#ah)"/><line x1="360" y1="384" x2="320" y2="384" marker-end="url(#ah)"/></g></svg>
+<p class="note">QC kiểm tra độ dày và độ bền màng, màu nhãn trên dung dịch đệm pH, thời gian mất màu của nhãn enzyme và mốc chuyển màu của nhãn leuco.</p>
+
+<h3 class="hh">Thiết bị chính</h3>
+<div class="tw"><table class="tbl"><tr><th>Công đoạn</th><th>Thiết bị</th></tr>
+<tr><td>Màng</td><td>Bồn khuấy có áo gia nhiệt, máy khuấy cao tốc, bộ lọc, máy tráng màng, lò sấy băng tải, máy cuộn và cắt, thước đo độ dày</td></tr>
+<tr><td>Nhãn anthocyanin</td><td>Bể chiết, thiết bị lọc, máy cô chân không, máy tráng, tủ bảo quản tối và lạnh</td></tr>
+<tr><td>Nhãn leuco</td><td>Máy in lụa hoặc in flexo, lò sấy nhiệt thấp</td></tr>
+<tr><td>Nhãn enzyme</td><td>Cân phân tích, máy đo pH, bơm định lượng, máy hàn túi nhỏ, tủ ổn nhiệt, phòng lạnh, tủ hút hơi iodine</td></tr>
+<tr><td>QR và ghép nhãn</td><td>Máy in nhãn cuộn, máy dán nhãn</td></tr>
+<tr><td>Kiểm tra chất lượng</td><td>Máy đo màu (ΔE), tủ ổn nhiệt, bể điều nhiệt, máy thử kéo, đo TVB-N hoặc gửi phòng kiểm nghiệm</td></tr></table></div>
+
+<h3 class="hh">Nhà xưởng</h3>
+<ul class="ul"><li>Kho nguyên liệu và hóa chất; khu pha chế màng (hút ẩm, thông gió); khu tráng và sấy màng.</li><li>Phòng pha chế nhãn enzyme ở 4–10°C, tránh sáng; kho lạnh cho nhãn enzyme và nhãn anthocyanin.</li><li>Khu in, cắt và ghép nhãn; khu đóng gói sạch; phòng QC.</li><li>Điện, nước sạch, xử lý nước thải axit và kiềm, khu xử lý iodine riêng (dùng lượng rất nhỏ, đóng kín, đặt mặt ngoài bao).</li></ul>
+
+<h3 class="hh">Các giai đoạn quy mô</h3>
+<div class="g3">
+<div class="card"><h3>Prototype</h3><p class="q">Trường, phòng thí nghiệm</p><p>Làm thủ công, đúc màng bằng khuôn nhỏ và tủ sấy. Mua chitosan đạt chuẩn thực phẩm thay vì tự chiết.</p></div>
+<div class="card"><h3>Xưởng nhỏ</h3><p class="q">Vài chục đến vài trăm m²</p><p>Tự làm màng, nhãn enzyme và nhãn anthocyanin; thuê ngoài in nhãn leuco và mã QR.</p></div>
+<div class="card"><h3>Quy mô lớn</h3><p class="q">Dây chuyền tự động</p><p>Tráng màng liên tục, máy ghép nhãn tự động, tự chiết chitosan từ vỏ tôm khi đủ sản lượng.</p></div>
+</div>
+
+<h3 class="hh">Điểm khó cần lưu ý</h3>
+<ul class="ul"><li>Nhãn enzyme khó nhất khi làm đại trà: cần giữ lạnh, kiểm soát nồng độ amylase để đạt đúng 2 giờ và 1–2 ngày, và kiểm hạn dùng của nhãn.</li><li>Màng bọc tiếp xúc trực tiếp thực phẩm nên cần kiểm tra an toàn vật liệu theo quy định bao bì thực phẩm; hỏi cơ quan có thẩm quyền về thủ tục.</li><li>Màng sắn dây – chitosan hàn nhiệt kém hơn nhựa, cần thử hàn xung hoặc dán.</li></ul>
 
 <footer>Dự án ChromaTech, bản đăng ký thi Khởi nghiệp học sinh, sinh viên. Kết quả trên nhãn chỉ mang tính tham khảo, không thay thế kiểm tra cảm quan hay kiểm nghiệm. Chitosan từ giáp xác có thể gây dị ứng ở người dị ứng hải sản.</footer>
 </div>
@@ -125,32 +155,55 @@ var M=[
 var mi=1,si=0;
 var el=document.getElementById('c3'),W=el.clientWidth||680,H=el.clientHeight||360;
 var scene=new THREE.Scene();var cam=new THREE.PerspectiveCamera(35,W/H,0.1,50);cam.position.set(0,0.5,8.4);cam.lookAt(0,0,0);
-var r=new THREE.WebGLRenderer({antialias:true,alpha:true});r.setSize(W,H);r.setPixelRatio(Math.min(window.devicePixelRatio,2));el.appendChild(r.domElement);
+var r=new THREE.WebGLRenderer({antialias:true,alpha:true});r.setSize(W,H);r.setPixelRatio(Math.min(window.devicePixelRatio*1.5,3));el.appendChild(r.domElement);
 scene.add(new THREE.AmbientLight(0xffffff,0.8));var dl=new THREE.DirectionalLight(0xffffff,0.6);dl.position.set(3,5,6);scene.add(dl);
+var maxA=r.capabilities.getMaxAnisotropy();
+scene.add(new THREE.HemisphereLight(0xffffff,0x9fb4b8,0.35));
+var dl2=new THREE.DirectionalLight(0xbfe3ff,0.35);dl2.position.set(-4,2,-5);scene.add(dl2);
 var g=new THREE.Group();scene.add(g);
-var bg=new THREE.BoxGeometry(3.4,2.7,0.5);
-var bm=new THREE.MeshPhongMaterial({color:0xcfdde6,transparent:true,opacity:0.3,depthWrite:false,shininess:80});g.add(new THREE.Mesh(bg,bm));
-g.add(new THREE.LineSegments(new THREE.EdgesGeometry(bg),new THREE.LineBasicMaterial({color:0x888780})));
-var tray=new THREE.Mesh(new THREE.BoxGeometry(3.0,0.28,0.4),new THREE.MeshPhongMaterial({color:0xf1efe8}));tray.position.y=-1.05;g.add(tray);
-var sm=new THREE.MeshPhongMaterial({color:0xd85a30});
-function shrimp(x,z,ry){var s=new THREE.Group();var b=new THREE.Mesh(new THREE.SphereGeometry(0.2,18,12),sm);b.scale.set(1.6,0.8,0.9);s.add(b);var t=new THREE.Mesh(new THREE.ConeGeometry(0.15,0.32,12),sm);t.rotation.z=Math.PI/2;t.position.x=-0.42;s.add(t);s.position.set(x,-0.82,z);s.rotation.y=ry;g.add(s)}
-shrimp(-0.9,0,0.2);shrimp(0,0,-0.15);shrimp(0.9,0,0.1);
-var fg=new THREE.BoxGeometry(3.05,0.7,0.44);var film=new THREE.Mesh(fg,new THREE.MeshPhongMaterial({color:0x1d9e75,transparent:true,opacity:0.2,depthWrite:false}));film.position.y=-0.95;g.add(film);
-var fl=new THREE.LineSegments(new THREE.EdgesGeometry(fg),new THREE.LineBasicMaterial({color:0x1d9e75}));fl.position.y=-0.95;g.add(fl);
-var pc=document.createElement('canvas');pc.width=500;pc.height=760;var cx=pc.getContext('2d');var pt=new THREE.CanvasTexture(pc);
-var pp=new THREE.Mesh(new THREE.PlaneGeometry(1.25,1.9),new THREE.MeshBasicMaterial({map:pt,transparent:true}));pp.position.set(-0.92,0.25,0.256);g.add(pp);
+function rrShape(w,h,rad){var s=new THREE.Shape(),x=-w/2,y=-h/2;s.moveTo(x+rad,y);s.lineTo(x+w-rad,y);s.quadraticCurveTo(x+w,y,x+w,y+rad);s.lineTo(x+w,y+h-rad);s.quadraticCurveTo(x+w,y+h,x+w-rad,y+h);s.lineTo(x+rad,y+h);s.quadraticCurveTo(x,y+h,x,y+h-rad);s.lineTo(x,y+rad);s.quadraticCurveTo(x,y,x+rad,y);return s}
+function ex(sh,d,z,mat){var m=new THREE.Mesh(new THREE.ExtrudeGeometry(sh,{depth:d,bevelEnabled:false,curveSegments:20}),mat);m.position.z=z;g.add(m);return m}
+var blk=new THREE.MeshPhongMaterial({color:0x14181b,shininess:110,specular:0x555555});
+var ringS=rrShape(3.4,2.7,0.28);ringS.holes.push(rrShape(3.22,2.52,0.22));ex(ringS,0.3,-0.25,blk);
+ex(rrShape(3.3,2.6,0.25),0.04,-0.27,blk);
+var lipS=rrShape(3.5,2.8,0.3);lipS.holes.push(rrShape(3.22,2.52,0.22));ex(lipS,0.03,0.02,blk);
+function buildSquid(){var V=THREE.Vector3,M=function(c,sh,ds){return new THREE.MeshPhongMaterial({color:c,shininess:sh||80,specular:0x888888,side:ds?THREE.DoubleSide:THREE.FrontSide})};
+var S=new THREE.Group(),mm=M(0xf28c38,90,true),hm=M(0xe0701f,70),am=M(0xf59a4a,60),sp=M(0xa8441a,30),fm=M(0xe8782a,60,true),ew=M(0xe3e6e6,120),bk=M(0x111111,140);
+function tube(pts,r,m){S.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts.map(function(q){return new V(q[0],q[1],q[2])})),30,r,6,false),m))}
+function rad(u){return 0.15*Math.pow(Math.max(Math.sin(Math.PI*(0.22+0.78*u)),0),0.85)}
+var pts=[];for(var i=0;i<=40;i++){pts.push(new THREE.Vector2(rad(i/40),i/40*0.9))}
+var mant=new THREE.Mesh(new THREE.LatheGeometry(pts,40),mm);mant.rotation.z=-Math.PI/2;mant.scale.z=0.85;S.add(mant);
+var seed=3;function rnd(){seed=(Math.imul(seed,1103515245)+12345)&0x7fffffff;return seed/0x7fffffff}
+for(var k=0;k<70;k++){var u=0.08+rnd()*0.9,r=rad(u),ph=(rnd()-0.5)*2.4,sc=0.008+rnd()*0.012;var d=new THREE.Mesh(new THREE.SphereGeometry(1,8,6),sp);d.scale.set(sc,sc,sc*0.5);d.position.set(u*0.9,r*Math.sin(ph),r*0.85*Math.cos(ph)+0.002);S.add(d)}
+var fs=new THREE.Shape();fs.moveTo(0.5,0.1);fs.lineTo(0.82,0.3);fs.lineTo(0.98,0.0);fs.lineTo(0.82,-0.3);fs.lineTo(0.5,-0.1);fs.lineTo(0.5,0.1);
+var fin=new THREE.Mesh(new THREE.ExtrudeGeometry(fs,{depth:0.012,bevelEnabled:false}),fm);fin.position.z=-0.006;S.add(fin);
+var hd=new THREE.Mesh(new THREE.SphereGeometry(1,24,16),hm);hd.scale.set(0.13,0.12,0.1);hd.position.set(-0.08,0,0);S.add(hd);
+[-1,1].forEach(function(k){var e=new THREE.Mesh(new THREE.SphereGeometry(0.05,16,12),ew);e.position.set(-0.1,k*0.115,0.03);S.add(e);var pu=new THREE.Mesh(new THREE.SphereGeometry(0.03,12,10),bk);pu.position.set(-0.11,k*0.14,0.045);S.add(pu)});
+for(var a=0;a<8;a++){var y0=-0.1+a*(0.2/7),zz=a%2?0.02:-0.02,bd=(a-3.5)*0.05;tube([[-0.16,y0*0.6,zz],[-0.36,y0*1.3+bd*0.3,zz],[-0.58,y0*1.9+bd,zz*0.5],[-0.72,y0*2.1+bd*1.6,0]],0.014,am)}
+
+return S}
+var T=buildSquid();
+function squid(x,y,rz,sc,fl){var c=T.clone();c.scale.set(sc*fl,sc,sc);c.position.set(x,y,-0.1);c.rotation.z=rz;g.add(c)}
+var rows=[1.0,0.5,0,-0.5,-1.0];
+rows.forEach(function(y,k){var j=k%2?1:-1;squid(-0.8,y+j*0.02,j*0.06,0.78,j);squid(0.8,y-j*0.02,-j*0.07,0.78,-j)});
+ex(rrShape(3.2,2.5,0.2),0.12,-0.22,new THREE.MeshPhongMaterial({color:0xcfe3d6,transparent:true,opacity:0.1,depthWrite:false,shininess:120}));
+ex(rrShape(3.2,2.5,0.2),0.01,0.0,new THREE.MeshPhongMaterial({color:0x1d9e75,transparent:true,opacity:0.13,depthWrite:false,shininess:150,specular:0xffffff}));
+var lid=ex(rrShape(3.5,2.8,0.3),0.015,0.055,new THREE.MeshPhongMaterial({color:0xdbe9f0,transparent:true,opacity:0.16,depthWrite:false,shininess:160,specular:0xffffff}));
+var le=new THREE.LineSegments(new THREE.EdgesGeometry(lid.geometry,40),new THREE.LineBasicMaterial({color:0x9fb4b8,transparent:true,opacity:0.7}));le.position.z=0.055;g.add(le);
+var pc=document.createElement('canvas');pc.width=1000;pc.height=1520;var cx=pc.getContext('2d');var pt=new THREE.CanvasTexture(pc);pt.anisotropy=maxA;
+var pp=new THREE.Mesh(new THREE.PlaneGeometry(0.98,1.49),new THREE.MeshBasicMaterial({map:pt,transparent:true}));pp.position.set(-1.06,0.455,0.08);g.add(pp);
 function rr(x,y,w,h,f,s){cx.beginPath();if(cx.roundRect){cx.roundRect(x,y,w,h,12)}else{cx.rect(x,y,w,h)}if(f){cx.fillStyle=f;cx.fill()}if(s){cx.strokeStyle=s;cx.lineWidth=4;cx.stroke()}}
 function tx(t,x,y,sz,col,al){cx.fillStyle=col;cx.font=sz+'px sans-serif';cx.textAlign=al||'left';cx.textBaseline='middle';cx.fillText(t,x,y)}
 function qr(x,y,s){var n=21,c=s/n,seed=7;cx.fillStyle='#fff';cx.fillRect(x,y,s,s);cx.fillStyle='#111';
 for(var i=0;i<n;i++)for(var j=0;j<n;j++){if((i<8&&j<8)||(i<8&&j>=n-8)||(i>=n-8&&j<8))continue;seed=(Math.imul(seed,1103515245)+12345)&0x7fffffff;if(seed%3==0)cx.fillRect(x+i*c,y+j*c,c,c)}
 function f(a,b){cx.fillStyle='#111';cx.fillRect(x+a*c,y+b*c,7*c,7*c);cx.fillStyle='#fff';cx.fillRect(x+(a+1)*c,y+(b+1)*c,5*c,5*c);cx.fillStyle='#111';cx.fillRect(x+(a+2)*c,y+(b+2)*c,3*c,3*c)}
 f(0,0);f(n-7,0);f(0,n-7)}
-function drawP(n,e,a){cx.clearRect(0,0,500,760);rr(6,6,488,748,'rgba(255,255,255,0.94)','#B4B2A9');var nm=['Đông','Mát','Phòng'];
-for(var i=0;i<3;i++){var on=i>=3-n;var X=105+i*145;cx.beginPath();cx.arc(X,85,56,0,6.2832);cx.fillStyle=on?'#7F77DD':'#FFFFFF';cx.fill();cx.lineWidth=4;cx.strokeStyle=on?'#534AB7':'#888780';cx.stroke();tx(nm[i],X,85,26,on?'#fff':'#444441','center')}
-tx('Nhãn leuco',40,170,24,'#444441');
-cx.setLineDash([12,8]);rr(40,205,420,70,AC[a],'#993556');cx.setLineDash([]);tx('Nhãn anthocyanin (cửa sổ mặt trong)',40,302,22,'#444441');
-rr(40,335,370,70,EC[e],e==3?'#888780':'#0C447C');rr(420,350,40,40,'#B4B2A9','#5F5E5A');tx('Nhãn enzyme',40,432,24,'#444441');
-qr(40,470,240);tx('Loại thực phẩm',300,520,24,'#444441');tx('Số lô',300,575,24,'#444441');tx('Ngày sản xuất',300,630,24,'#444441');tx('Mã QR (minh họa)',40,735,20,'#444441');pt.needsUpdate=true}
+function drawP(n,e,a){cx.setTransform(2,0,0,2,0,0);cx.clearRect(0,0,500,760);rr(6,6,488,748,'rgba(255,255,255,0.94)','#B4B2A9');var nm=['Đông','Mát','Phòng'],C='#444441';
+for(var i=0;i<3;i++){var on=i>=3-n;var X=105+i*145;cx.beginPath();cx.arc(X,85,56,0,6.2832);cx.fillStyle=on?'#7F77DD':'#FFFFFF';cx.fill();cx.lineWidth=4;cx.strokeStyle=on?'#534AB7':'#888780';cx.stroke();tx(nm[i],X,85,26,on?'#fff':C,'center')}
+tx('Nhãn leuco',40,170,24,C);
+cx.setLineDash([12,8]);rr(40,205,420,70,AC[a],'#993556');cx.setLineDash([]);tx('Nhãn anthocyanin (cửa sổ mặt trong)',40,302,22,C);
+rr(40,335,370,70,EC[e],e==3?'#888780':'#0C447C');rr(420,350,40,40,'#B4B2A9','#5F5E5A');tx('Nhãn enzyme',40,432,24,C);
+qr(40,470,240);tx('Loại thực phẩm',300,520,24,C);tx('Số lô',300,575,24,C);tx('Ngày sản xuất',300,630,24,C);tx('Mã QR (minh họa)',40,735,20,C);pt.needsUpdate=true}
 function $(i){return document.getElementById(i)}
 function apply(){var s=M[mi].s[si];drawP(s.l,s.e,s.a);
 $('d1').style.background=s.l>0?'#7F77DD':'transparent';$('d2').style.background=EC[s.e];$('d3').style.background=AC[s.a];
@@ -159,12 +212,21 @@ var sb=$('sb');sb.innerHTML='';M[mi].s.forEach(function(x,i){var b=document.crea
 var tb=$('tb');tb.innerHTML='';M.forEach(function(x,i){var b=document.createElement('button');b.className=i==mi?'on':'';b.textContent=x.k;b.onclick=function(){mi=i;si=0;apply()};tb.appendChild(b)})}
 apply();g.rotation.y=0.45;
 var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-var auto=!reduce,drag=false,px=0,py=0,t=0;
-el.addEventListener('pointerdown',function(e){drag=true;auto=false;px=e.clientX;py=e.clientY;el.style.cursor='grabbing';el.setPointerCapture(e.pointerId)});
-el.addEventListener('pointermove',function(e){if(!drag)return;g.rotation.y+=(e.clientX-px)*0.01;g.rotation.x=Math.max(-0.7,Math.min(0.7,g.rotation.x+(e.clientY-py)*0.005));px=e.clientX;py=e.clientY});
-el.addEventListener('pointerup',function(){drag=false;el.style.cursor='grab'});
+var auto=!reduce,t=0,dist=8.4,distT=8.4,ptrs={};
+function zoom(f){distT=Math.max(4.2,Math.min(14,distT*f))}
+function dd(a,b){return Math.hypot(a.x-b.x,a.y-b.y)||1}
+el.addEventListener('pointerdown',function(e){ptrs[e.pointerId]={x:e.clientX,y:e.clientY};auto=false;el.style.cursor='grabbing';el.setPointerCapture(e.pointerId)});
+el.addEventListener('pointermove',function(e){var pr=ptrs[e.pointerId];if(!pr)return;var cur={x:e.clientX,y:e.clientY},ids=Object.keys(ptrs);
+if(ids.length==2){var oid=ids[0]==String(e.pointerId)?ids[1]:ids[0];var o=ptrs[oid];zoom(dd(pr,o)/dd(cur,o))}
+else{g.rotation.y+=(cur.x-pr.x)*0.01;g.rotation.x=Math.max(-0.7,Math.min(0.7,g.rotation.x+(cur.y-pr.y)*0.005))}
+ptrs[e.pointerId]=cur});
+function up(e){delete ptrs[e.pointerId];if(!Object.keys(ptrs).length)el.style.cursor='grab'}
+el.addEventListener('pointerup',up);el.addEventListener('pointercancel',up);
+el.addEventListener('wheel',function(e){e.preventDefault();zoom(e.deltaY>0?1.1:0.9)},{passive:false});
+$('zi').onclick=function(){zoom(0.8)};$('zo').onclick=function(){zoom(1.25)};
+$('zr').onclick=function(){distT=8.4;g.rotation.set(0,0.45,0);auto=!reduce};
 window.addEventListener('resize',function(){var w=el.clientWidth,h=el.clientHeight;if(!w||!h)return;r.setSize(w,h);cam.aspect=w/h;cam.updateProjectionMatrix()});
-function loop(){requestAnimationFrame(loop);t+=0.016;if(auto){g.rotation.y=0.5*Math.sin(t*0.6)}r.render(scene,cam)}loop();
+function loop(){requestAnimationFrame(loop);t+=0.016;if(auto){g.rotation.y=0.5*Math.sin(t*0.6)}dist+=(distT-dist)*0.15;cam.position.set(0,0.5*dist/8.4,dist);cam.lookAt(0,0,0);r.render(scene,cam)}loop();
 })();
 </script>
 </body>
